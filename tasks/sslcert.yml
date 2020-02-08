@@ -1,7 +1,10 @@
 ---
 
 - name: create self-signed SSL cert
-  command: openssl req -new -nodes -x509 -subj "{{ postfix_ssl_subject }}" -days 3650 -keyout "{{ postfix_tls_key_file }}" -out "{{ postfix_tls_cert_file }}" -extensions v3_ca
+  command: |
+    openssl req -new -nodes -x509 -subj "{{ postfix_ssl_subject }}" \
+                -days 3650 -keyout "{{ postfix_tls_key_file }}" \
+                -out "{{ postfix_tls_cert_file }}" -extensions v3_ca
   args:
     creates: "{{ postfix_tls_cert_file }}"
   notify: "postfix restart"
