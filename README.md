@@ -16,7 +16,7 @@ Only tested on ubuntu for now.
 postfix_enabled: yes # The role is enabled
 
 postfix_smtpd_use_tls: yes
-postfix_myhostname: "{{inventory_hostname}}"
+postfix_myhostname: "{{ inventory_hostname }}"
 postfix_myorigin: $myhostname
 postfix_smtp_sasl_auth_enable: yes
 postfix_smtp_tls_cafile: "/etc/ssl/certs/Thawte_Premium_Server_CA.pem"
@@ -39,7 +39,7 @@ postfix_rewrite_sender_address: ""
 # Send a test mail to this address when Postfix configuration changes
 postfix_send_test_mail_to: ""
 
-postfix_smtp_sasl_user: "{{ansible_ssh_user|default('root')}}"
+postfix_smtp_sasl_user: "{{ ansible_ssh_user|default('root') }}"
 postfix_smtp_sasl_password: ""
 ```
 
